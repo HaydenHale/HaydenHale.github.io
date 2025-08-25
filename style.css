@@ -1,6 +1,6 @@
 body {
-    background: rgb(27, 27, 173);
-    color: rgb(81, 41, 225);
+    background: rgb(34, 27, 173);
+    color: rgb(67, 33, 203);
     padding: 10px;
     font-family: Arial, sans-serif;
 }
@@ -12,7 +12,7 @@ body {
 
 /* navigation menu */
 nav {
-    background: rgb(230, 219, 6);
+    background: rgba(230, 219, 6, 0.7);
     margin: 0 auto;
     display: flex;
     padding: 10px;
@@ -46,7 +46,7 @@ a {
 
 /* main container area beneath menu */
 main {
-    background: rgb(230, 219, 6);
+    background: rgba(230, 219, 6, 0.7);
     display: flex;
     margin-top: 20px;
 }
@@ -57,7 +57,7 @@ main {
 }
 
 .sidebar-img {
-    width: 200px;
+    width: 270px;
 }
 
 .content {
