@@ -41,8 +41,7 @@ $(function () {
     createPlatform(900, 150, 100, 10, "red");
 
     // TODO 3 - Create Collectables
-    createCollectable(:commonSample, 250, 250)
-
+    createCollectable("commonSample", 700, 600);
     // TODO 4 - Create Cannons
 
     //////////////////////////////////
