@@ -1,5 +1,5 @@
 // setup variables
-const walkAcceleration = 2.5; // how much is added to the speed each frame
+const walkAcceleration = 5; // how much is added to the speed each frame
 const gravity = 0.5; // how much is subtracted from speedY each frame
 const friction = 1.5; // how much the player is slowed each frame
 const maxSpeed = 8; // maximum horizontal speed, not vertical
@@ -99,6 +99,6 @@ var collectableList = {
   max: { image: "images/collectables/max-head.png" },
   steve: { image: "images/collectables/steve-head.png" },
   commonSample: { image: "images/collectables/common-sample.png" },
+  epicSample: { image: "images/collectables/epic-sample.png" },
+  rareSample: { image: "images/collectables/rare-sample.png"},
 };
-rareSample: {image: "images/collectables/rare-sample.png"
-}
