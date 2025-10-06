@@ -81,6 +81,9 @@
         var points = 0;
         var speed = 10;
         var speedY = 12;
+        var wallHits = 0;
+        var maxWallHits = 10;
+        var gameOver = false;
 
         /**
          * This Function will be called 20 times/second.
@@ -88,6 +91,8 @@
          * If the box drifts off the screen, turn it around!
          */
         function update() {
+          if (gameOver) return; // Stop updationg if game is over
+
           moveBoxTo(positionX, positionY);
           positionX = positionX + speed;
           positionY = positionY + speedY;
@@ -96,18 +101,28 @@
           if (positionX >= boardWidth - box.width()) {
             speed *= -1;
             positionX = boardWidth - box.width();
+            wallHits++;
           } else if (positionX <= 0) {
             speed *= -1;
             positionX = 0;
+            wallHits++;
           }
 
           // Bounce off top/bottom
           if (positionY >= boardHeight - box.height()) {
             speedY *= -1;
             positionY = boardHeight - box.height();
+            wallHits++;
           } else if (positionY <= 0) {
             speedY *= -1;
             positionY = 0;
+            wallHits++;
+          }
+
+          //Check for game over
+          if (wallHits >= maxWallHits){
+            gameOver = true;
+            box.text("Game Over!");
           }
         }
 
@@ -119,6 +134,21 @@
          * - move the box to the left side of the screen.
          */
         function handleBoxClick() {
+          if (gameOver) {
+            //Reset the game
+            points = 0;
+            wallHits = 0;
+            gameOver = false;
+            positionX = (boardWidth - box.width()) / 2;
+            positionY = (boardHeight - box.height()) / 2;
+            changeBoxText(points);
+            // Optionally, randomize speed and direction on restart:
+            var minSpeed = 8 + points * 0.3;
+            var maxSpeed = 17 + points * 0.6;
+            speed = (Math.random() < 0.5 ? -1 : 1) * (Math.random() * (maxSpeed - minSpeed) + minSpeed);
+            speedY = (Math.random() < 0.5 ? -1 : 1) * (Math.random() * (maxSpeed - minSpeed) + minSpeed);
+    return;
+          }
           //Randomize starting position within the board boundaries
           positionX = Math.random() * (boardWidth - box.width());
           positionY = Math.random() * (boardHeight - box.height());
