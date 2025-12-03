@@ -30,6 +30,7 @@ var background = function (window) {
     //////////////////////////////////////////////////////////////////
     // TODO (several):
     var tree;
+    var buildings = [];
 
     // called at the start of game and whenever the page is resized
     // add objects for display in background. draws each image added to the background once
@@ -61,8 +62,8 @@ var background = function (window) {
         background.addChild(circle);
       }
       // TODO 4: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
-      for (var i = 0; i < 5; ++i) {
-        var buildingHeight = 200;
+      for (var i = 0; i < 7; ++i) {
+        var buildingHeight = Math.random() * 200 + 50;
         var building = draw.rect(75, buildingHeight, "Blue", "Black", 1);
         building.x = 200 * i;
         building.y = groundY - buildingHeight;
@@ -94,7 +95,7 @@ var background = function (window) {
 
       for (var i = 0; i < building.length; i++) {
         var building = building[i];
-        building.x = building.x - 2
+        building = building.x - 2;
         if (building.x < -200 ){
           building.x = canvasWidth
         }

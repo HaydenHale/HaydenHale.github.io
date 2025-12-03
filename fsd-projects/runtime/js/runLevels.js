@@ -22,7 +22,7 @@ var runLevels = function (window) {
       var hitZoneSize = 20;
       var damageFromObstacle = 100;
       var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
-      sawBladeHitZone.x = 200;
+      sawBladeHitZone.x = 1100;
       sawBladeHitZone.y = 250;
       game.addGameItem(sawBladeHitZone);
       var obstacleImage = draw.bitmap("img/sawblade.png");
