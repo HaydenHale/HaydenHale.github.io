@@ -30,9 +30,6 @@ var background = function (window) {
     //////////////////////////////////////////////////////////////////
     // TODO (several):
     var tree;
-    var buildings = [];
-    // var positionX = (boardWidth - buildings.width()) / 2;
-    // var positionY = (boardHeight - buildings.height()) / 2;
 
     // called at the start of game and whenever the page is resized
     // add objects for display in background. draws each image added to the background once
@@ -63,37 +60,29 @@ var background = function (window) {
         circle.y = Math.random() * groundY;
         background.addChild(circle);
       }
-      // TODO 4: Part 1 - Add buildings!     Q: This is before TODO 3 for a reason! Why?
+      // TODO 4: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
       for (var i = 0; i < 5; ++i) {
-      var buildingHeight = 300;
-      var building = draw.rect(75, buildingHeight, "LightGray", "Black", 1);
-      building.x = 200 * i;
-      building.y = groundY - buildingHeight;
-      background.addChild(building);
-      buildings.push(building);
-}
-      // for (var i = 0; i < 7; ++i) {
-      //   var buildingHeight = Math.random() * 200 + 50;
-      //   var building = draw.rect(75, buildingHeight, "Blue", "Black", 1);
-      //   building.x = 200 * i;
-      //   building.y = groundY - buildingHeight;
-      //   background.addChild(building);
-      //   buildings.push(building);
-      // }
+        var buildingHeight = 200;
+        var building = draw.rect(75, buildingHeight, "Blue", "Black", 1);
+        building.x = 200 * i;
+        building.y = groundY - buildingHeight;
+        background.addChild(building);
+      }
       // TODO 3: Part 1 - Add a tree
       tree = draw.bitmap("img/tree.png");
       tree.x = 1100;
-      tree.y = groundY - 75;
+      tree.y = 75;
       background.addChild(tree);
     } // end of render function - DO NOT DELETE
 
     // Perform background animation
     // called on each timer "tick" - 60 times per second
     function update() {
+      // useful variables
       var canvasWidth = app.canvas.width;
       var canvasHeight = app.canvas.height;
       var groundY = ground.y;
-    
+
 
       // TODO 3: Part 2 - Move the tree!
       tree.x = tree.x - 5;
@@ -103,21 +92,13 @@ var background = function (window) {
       }
       // TODO 4: Part 2 - Parallax
 
-      for (var i = 0; i < myArray.length; i++) {
-      var buildings = buildings[i];
-        buildings.y - 5;
-    }
-
-  //   for (var i = 0; i < building.length; i++) {
-  //   var building = building[i];
-  //   building.x = building.x - 2;
-  //   if (building.x < -200) {
-  //     building.x = canvasWidth;
-  //   }
-  // }
-}
-
-      
+      for (var i = 0; i < building.length; i++) {
+        var building = building[i];
+        building.x = building.x - 2
+        if (building.x < -200 ){
+          building.x = canvasWidth
+        }
+      }
     } // end of update function - DO NOT DELETE
 
     /* Make a createjs Container for the background and let it know about the render and upate functions*/
@@ -130,10 +111,10 @@ var background = function (window) {
     app.addUpdateable(background);
 
     /* render and return the background */
-    render(); 
+    render();
     return background;
   };
-
+};
 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if (
