@@ -83,13 +83,13 @@ var background = function (window) {
       var canvasHeight = app.canvas.height;
       var groundY = ground.y;
 
-
       // TODO 3: Part 2 - Move the tree!
       tree.x = tree.x - 5;
 
       if (tree.x < -200) {
         tree.x = canvasWidth;
       }
+      return tree.x
       // TODO 4: Part 2 - Parallax
 
       for (var i = 0; i < building.length; i++) {
