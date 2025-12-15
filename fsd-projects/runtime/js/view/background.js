@@ -80,7 +80,9 @@ var background = function (window) {
     function update() {
       // useful variables
       var canvasWidth = app.canvas.width;
+      canvasHeight 
       var canvasHeight = app.canvas.height;
+      groundY
       var groundY = ground.y;
 
       // TODO 3: Part 2 - Move the tree!
@@ -93,10 +95,10 @@ var background = function (window) {
       // TODO 4: Part 2 - Parallax
 
       for (var i = 0; i < building.length; i++) {
-        var building = building[i];
-        building.x = building.x - 2
-        if (building.x < -200 ){
-          building.x = canvasWidth
+        var eachbuilding = building[i];
+        eachbuilding.x = eachbuilding.x - 2;
+        if (eachbuilding.x < -75 ){
+          eachbuilding.x = canvasWidth;
         }
       }
     } // end of update function - DO NOT DELETE
