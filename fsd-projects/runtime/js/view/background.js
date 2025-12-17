@@ -92,7 +92,7 @@ var background = function (window) {
         tree.x = canvasWidth;
      
       }
-        return tree.x
+        return tree.x;
       
       // TODO 4: Part 2 - Parallax
 
