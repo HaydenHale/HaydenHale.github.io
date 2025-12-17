@@ -42,9 +42,7 @@ var runLevels = function (window) {
       sawBladeHitZone.addChild(obstacleImage);
       obstacleImage.x = -25;
       obstacleImage.y = -25;
-      if (sawBladeHitZone.x < -200) {
-        sawBladeHitZone.x = canvasWidth;
-      }
+     
 
 
       // var enemy = game.createGameItem("enemy", 25, velocityX, rotationalVelocity);
@@ -74,16 +72,36 @@ var runLevels = function (window) {
       redSquare.y = -25;
       enemy.addChild(redSquare);
       enemy.x = 400;
-      enemy.y = groundY - 50;
+      enemy.y = groundY - 30;
       game.addGameItem(enemy);
-      var velocityX = enemy.velocityX -= 10;
+       enemy.velocityX = -5.5;
       var rotationalVelocity = 20;
       enemy.onPlayerCollision = function () {
         game.changeIntegrity(-10)
       };
-      // enemy.onPlayerCollision = function () {
-      //   game.changeIntegrity(-10)
-      // };
+      enemy.onPlayerCollision = function () {
+        game.changeIntegrity(-10)
+      };
+      enemy.onProjectileCollision = function () {
+        game.increaseScore(100);
+        enemy.fadeOut();
+      }
+      var enemy = game.createGameItem("enemy", 25); 
+      var redSquare = draw.rect(50, 50, "red");
+      redSquare.x = -25;
+      redSquare.y = -25;
+      enemy.addChild(redSquare);
+      enemy.x = 4000;
+      enemy.y = groundY - 30;
+      game.addGameItem(enemy);
+       enemy.velocityX = -15;
+      var rotationalVelocity = 20;
+      enemy.onPlayerCollision = function () {
+        game.changeIntegrity(-30)
+      };
+      enemy.onPlayerCollision = function () {
+        game.changeIntegrity(-10)
+      };
       enemy.onProjectileCollision = function () {
         game.increaseScore(100);
         enemy.fadeOut();
@@ -94,16 +112,16 @@ var runLevels = function (window) {
       redSquare.y = -25;
       enemy.addChild(redSquare);
       enemy.x = 800;
-      enemy.y = groundY - 100;
+      enemy.y = groundY - 110;
       game.addGameItem(enemy);
-      enemy.velocityX = -10;
+      enemy.velocityX = -7;
       var rotationalVelocity = 20;
       enemy.onPlayerCollision = function () {
         game.changeIntegrity(-10)
       };
-      // enemy.onPlayerCollision = function () {
-      //   game.changeIntegrity(-10)
-      // };
+      enemy.onPlayerCollision = function () {
+        game.changeIntegrity(-10)
+      };
       enemy.onProjectileCollision = function () {
         game.increaseScore(100);
         enemy.fadeOut();
@@ -114,12 +132,12 @@ var runLevels = function (window) {
       redSquare.y = -25;
       enemy.addChild(redSquare);
       enemy.x = 1200;
-      enemy.y = groundY - 50;
+      enemy.y = groundY - 30;
       game.addGameItem(enemy);
-      var velocityX = enemy.velocityX -= 100;
+     var velocityX = enemy.velocityX -= 8.5;
       var rotationalVelocity = 20;
       enemy.onPlayerCollision = function () {
-        game.changeIntegrity(-10)
+        game.changeIntegrity(-25)
       };
       enemy.onPlayerCollision = function () {
         game.changeIntegrity(-10)
