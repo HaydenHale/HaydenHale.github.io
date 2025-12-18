@@ -79,7 +79,7 @@ var runLevels = function (window) {
        enemy.velocityX = -15;
       var rotationalVelocity = 20;
       enemy.onPlayerCollision = function () {
-        game.changeIntegrity(-30)
+        game.changeIntegrity(-25)
       };
       enemy.onPlayerCollision = function () {
         game.changeIntegrity(-10)
@@ -132,6 +132,26 @@ var runLevels = function (window) {
       createEnemy(400, groundY - 10);
       createEnemy(800, groundY - 100);
       createEnemy(1200, groundY - 50);
+      function createReward(x, y) {
+        var reward = game.createGameItem("reward", 25);
+        var greenSquare = draw.rect(50, 50, "green");
+        greenSquare.x = -25;
+        greenSquare.y = -25;
+        reward.addChild(greenSquare);
+        reward.x = 2000;
+        reward.y = groundY - 50;
+        game.addGameItem(reward);
+        reward.velocityX = -5;
+        reward.onPlayerCollision = function () {
+          console.log("reward collected");
+          game.increaseScore(1000);
+          reward.fadeOut();
+        };
+      }
+      createReward(2000, groundY - 50);
+      createReward(3000, groundY - 50);
+      createReward(4000, groundY - 50);
+      
       function createMarker(markerX, MarkerY) {
         var marker = marker.createGameItem("marker", 25);
         marker = draw.bitmap("img/street-light.png");
